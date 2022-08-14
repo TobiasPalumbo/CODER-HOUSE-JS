@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">     
+    <script src="https://kit.fontawesome.com/14234ba7a4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav class="nav-header">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="#">Logo</a>
+                </div>
+                <ul class="nav-list">
+                    <li class="nav-items">
+                        <a href="#">Inicio</a>
+                    </li>
+                    <li class="nav-items">
+                        <a href="#section-productos">Productos</a>
+                    </li>
+                    <li class="nav-items nav_user" id="nav-cuenta">
+                        <a href="#container-login">Cuenta <div class="user-info"><span>No has inicido una sesion</span></div></a>
+                    </li>
+                    <li class="nav-items">
+                        <a href="#">Ayuda</a>
+                    </li>
+                    <li class="nav-items cart-item">
+                        <a href="" id="cart-call">
+                            <i class="fa-solid fa-cart-arrow-down cart"></i><span class="cart-cantidad">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section >
+    <div id="inicio">
+            <!-- Slider main container -->
+    <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide"><img src="https://i0.wp.com/vanderbaby.com.ar/wp-content/uploads/2021/08/1-banner%20promo.png?fit=2048%2C566&ssl=1" alt=""></div>
+        <div class="swiper-slide"><img src="https://mundojuguete.vteximg.com.br/arquivos/Caminstit-bp-Entrega%20en%20el%20dia-desktop.png?v=637771617853500000" alt=""></div>
+        <div class="swiper-slide"><img src="https://mundojuguete.vteximg.com.br/arquivos/ids/186416/bannerppal_desktop_50off_vmayo.jpg?v=637870915855430000" alt=""></div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div> </div>
+            
+        </div>
+    </section>
+    <div class="main" id="section-productos">
+        <section class="productos-section" >
+        
+        </section>
+        <aside>
+            <div class="aside-cotainer">
+                <label for="buscarProducto">Busca tu producto</label>
+                <div><input type="search" name="" id="busqueda-input"></div>
+                <h4>Categorias</h4>
+                <div class="categorias-list">
+                    <ul>
+                        <li class="categoria-item"><a href="">Andadores</a></li>
+                        <li class="categoria-item"><a href="">Gimnasios</a></li>
+                        <li class="categoria-item"><a href="">Triciclos</a></li>
+                        <li class="categoria-item"><a href="">Monopatin</a></li>
+                        <li class="categoria-item"><a href="">Butaca</a></li>
+                        <li class="categoria-item"><a href="">Silla de comer</a></li>
+                        <li class="categoria-item"><a href="">Bañaderas</a> </li>
+                    </ul>
+                </div>
+                <div class="ordenar-precio-container">
+                <button class="precio-btn">Ordenar por precio</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <div class="modal-display" id="modalDisplay">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-cross" id="crossModal">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <div><h3>Carrito</h3></div>
+            </div>
+            <div class="modal-cart"></div>
+            <p>Precio total: <span id="precio-total">$0</span></p>
+            <button class="modal-clear" id="emptyCart">Vaciar carrito</button>
+        </div>
+    </div>
+    <section id="sect-register">
+        <div class="titel-section-re"> 
+            <h4 >Registrate para poder obtener veneficios</h4>
+        </div>
+
+        <div class="login">
+            <div class="ilustracion">
+                <img src="img/undraw_family_vg76.svg" alt="">
+            </div>
+            <div class="login-container" id="container-login">
+                <a href="#" class="ingresar" id="log-in"><span>Log-in</span><i class="fa-solid fa-angle-right"></i></a>
+                <form action="" id="form">
+                    <h4 class="title-register">Registro</h4>
+                    <div class="bloque">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" required id="nombre" >
+                    </div>
+                    <div class="bloque">
+                        <label for="">Email</label>
+                        <input type="email" name="" required id="email">
+                    </div>
+                    <div class="bloque">
+                        <label for="">Contraseña</label>
+                        <input type="password" name="" required id="password">
+                    </div>
+                    <div class="btn-container"><button type="submit">Enviar</button></div>
+                    <p class="warnings"></p>
+                </form>
+            </div>
+        </div>
+
+    </section>
+    <div class="switch-container">
+        <button class="switch">
+            <span><i class="fa-solid fa-sun"></i></span>
+            <span><i class="fa-solid fa-moon"></i></span>
+        </button>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-index">
+                <div class="logo-footer"><h4><a href="#">Logo</a></h4></div>
+                <div class="nav-footer">
+                    <h4>Links importantes</h4>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Productos</a></li>
+                        <li><a href="#">Cuenta</a></li>
+                        <li><a href="#">Ayuda</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contactos</h4>
+                    <span>0800-000-800</span>
+                    <p>palumbotobias@gmail.com</p>
+                </div>
+                <div class="redes-sociales">
+                    <h4>Redes sociales</h4>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© JS2022. Diseñado y Desarrollado por Tobias Palumbo</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+    <script src="registro.js"></script>
+    <script src="modal.js"></script>
+    <script src="nav.js"></script>
+    <script src="modonocturno.js"></script>
+</body>
+</html>
