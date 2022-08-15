@@ -1,67 +1,33 @@
-const stock = [
-    {id:1 , nombre: "Andador" ,precio: 1200, cantidad: 1 , img: "img/f1.webp", marca:"Kiddy"  },
-    {id:2 , nombre: "Triciclo" ,precio: 1300 , cantidad: 1 , img: "img/tri.jpg", marca:"TinnoKids"  },
-    {id:3 , nombre: "Cochesito" ,precio: 1400 , cantidad: 1 , img: "img/coche.jpg", marca:"Felcraf"},
-    {id:4 , nombre: "Bañadera" ,precio: 1500 , cantidad: 1 , img: "img/bañadera.webp", marca:"Kiddy"  },
-    {id:5 , nombre: "Gimnasio" ,precio: 1700 , cantidad: 1 , img: "img/gym.webp", marca:"Bebesit"  },
-    {id:6 , nombre: "Butaca" ,precio: 1900 , cantidad: 1 , img: "img/senna.webp", marca:"Felcraf"  },
-    {id:7 , nombre: "Triciclo con Barral" ,precio: 1200 , cantidad: 1 , img: "img/Little-Trike-Girl.webp", marca:"Felcraf"  },
-    {id:8 , nombre: "Monopatin" ,precio: 1100 , cantidad: 1 , img: "img/mono.jpg", marca:"Love"  },
-    {id:9 , nombre: "Caminador" ,precio: 1200, cantidad: 1 , img: "img/caminador-rondi-first-steps-bebe-didactico-andador-3-.jpg", marca:"TinnoKids"},
-    {id:10 , nombre: "Silla 3 en 1" ,precio: 1300 , cantidad: 1 , img: "img/silla-3en1.webp", marca:"Bebesit",  },
-    {id:11 , nombre: "Coche con huevito" ,precio: 1400 , cantidad: 1 , img: "img/coche-huevito.webp", marca:"Bebesit"},
-    {id:12 , nombre: "Aro de baño" ,precio: 1500 , cantidad: 1 , img: "img/aro-bano.jpg", marca:"Love"  },
-    {id:13 , nombre: "Gimnasio" ,precio: 1700 , cantidad: 1 , img: "img/gyin2.webp", marca:"Love"  },
-    {id:14 , nombre: "Butaca booster" ,precio: 1900 , cantidad: 1 , img: "img/butaca2.jpg", marca:"Kiddy"  },
-    {id:15 , nombre: "Silla de comer" ,precio: 1200 , cantidad: 1 , img: "img/SILLA-POCKET.jpg", marca:"Pocket"},
-    {id:16 , nombre: "Silla Mimzy" ,precio: 1100 , cantidad: 1 , img: "img/silla-mimzy.webp", marca:"Minzy"  },
-];
 let carrito = [];
 const section = document.querySelector(".productos-section");
 const modalCart = document.querySelector(".modal-cart");
 const cantidadCarrito = document.querySelector(".cart-cantidad")
 
+const llamarProductos = async() =>{
+    try{
+        // Agregando los objetos al DOM
+        let response = await fetch("/stock.json")
+        let stock = await response.json()
+            stock.forEach(el=>{
+                let div = document.createElement("div")
+                div.classList.add("productos")
+                div.innerHTML = `
+                <img src="${el.img} " alt="" class="img-productos">
+                <div class="nombre-container">
+                <span class="marca">${el.marca}</span>
+                </div>
+                <h4 class="nombre">${el.nombre}</h4>
+                <p class="precio">$${el.precio}</p>
+                <button id="add-carrito-${el.id}" class="btn-add"><i class="fa-solid fa-cart-arrow-down"></i></button>
+            `;
+                section.appendChild(div);
+                const boton = document.getElementById(`add-carrito-${el.id}`);
 
-//Agregando LocalStorage
-
-document.addEventListener("DOMContentLoaded", ()=>{
-    if(localStorage.getItem("carrito")){
-        carrito = JSON.parse(localStorage.getItem("carrito"))
-        agregarAlModalCart()
-    }
-})
-// Agregando los objetos al DOM
-
-    stock.forEach(el=>{
-        let div = document.createElement("div")
-        div.classList.add("productos")
-        div.innerHTML = `
-        <img src="${el.img} " alt="" class="img-productos">
-        <div class="nombre-container">
-        <span class="marca">${el.marca}</span>
-        </div>
-        <h4 class="nombre">${el.nombre}</h4>
-        <p class="precio">$${el.precio}</p>
-        <button id="add-carrito-${el.id}" class="btn-add"><i class="fa-solid fa-cart-arrow-down"></i></button>
-        `;
-        section.appendChild(div);
-        const boton = document.getElementById(`add-carrito-${el.id}`);
-
-        boton.addEventListener("click", ()=>{
-            agregarAlcarrito(el.id)
+                boton.addEventListener("click", ()=>{
+                agregarAlcarrito(el.id)
         });
-    });
-
-
-//Vaciar carrito
-
-emptyCart.addEventListener("click",()=>{
-    carrito.length = 0;
-    agregarAlModalCart();
-})
-
-//Agrargando el producto al array carrito
-
+    })
+    //Agrargando el producto al array carrito
     const agregarAlcarrito = (prodId) => {
         const existe = carrito.some(prod => prod.id === prodId);
         if(existe){
@@ -78,6 +44,36 @@ emptyCart.addEventListener("click",()=>{
         agregarAlModalCart()
         console.log(carrito);
     };
+}
+    catch(error){
+        console.log(error)
+    }
+}
+llamarProductos()
+
+
+//Agregando LocalStorage
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    if(localStorage.getItem("carrito")){
+        carrito = JSON.parse(localStorage.getItem("carrito"))
+        agregarAlModalCart()
+    }
+})  
+
+
+
+
+
+//Vaciar carrito
+
+emptyCart.addEventListener("click",()=>{
+    carrito.length = 0;
+    agregarAlModalCart();
+})
+
+
+
 
 // Eliminar del carrito
 
@@ -87,6 +83,24 @@ emptyCart.addEventListener("click",()=>{
         carrito.splice(index, 1);
         agregarAlModalCart();
     };
+
+
+//Botonos de sumar y resta del carrito
+
+const sumar = (prodId) =>{
+    let item = carrito.find((producto) => producto.id === prodId);
+    item.cantidad++
+    agregarAlModalCart()
+}
+const restar = (prodId)=>{
+    let item = carrito.find((producto) => producto.id === prodId);
+    
+    if(item.cantidad > 1){
+        item.cantidad--
+    }
+    agregarAlModalCart()
+}
+
 //Agrargando el producto al modal carrito
 
     const agregarAlModalCart = () =>{
@@ -96,17 +110,16 @@ emptyCart.addEventListener("click",()=>{
             div.className = (`producto-cart`);
             div.innerHTML=`
             <img src="${producto.img}" class="img-producto-cart"/>
-            <p>${producto.nombre}</p>
-            <p>$${producto.precio}</p>
-            <p>Cantidad:<span id="cantidad" >${producto.cantidad}</span></p>
+            <span class="modal-nombre">${producto.nombre}</span>
+            <span class="modal-price">$${producto.precio}</span>
+            <span id="cantidad"><span><i class="fa-solid fa-minus" id="restar" onclick="restar(${producto.id})"></i></span>${producto.cantidad}<span><i class="fa-solid fa-plus" id="sumar" onclick="sumar(${producto.id})" ></i></span></span>
             <button onclick = "eliminarDelCarrito(${producto.id})" class="btn-eliminar"> <i class="fa-solid fa-trash-can"></i></button>
             `
             modalCart.appendChild(div)
             localStorage.setItem("carrito", JSON.stringify(carrito))
         })
-        
         cantidadCarrito.innerHTML = carrito.length
-        precioTotal.innerHTML = "$" + carrito.reduce((acc, producto) => acc + producto.precio, 0 );
+        precioTotal.innerHTML = "$" + carrito.reduce((acc, producto) => acc + producto.cantidad * producto.precio, 0 );
     };
 
 
@@ -151,5 +164,4 @@ const swiper = new Swiper('.swiper', {
     // }
 
     // buscarProducto(searchProduct, targetProducto )
-
 

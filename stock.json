@@ -1,0 +1,18 @@
+[
+    {"id":1 , "nombre": "Andador" ,"precio": 1200, "cantidad": 1 , "img": "img/f1.webp", "marca":"Kiddy"  },
+    {"id":2 , "nombre": "Triciclo" ,"precio": 1300 , "cantidad": 1 , "img": "img/tri.jpg", "marca":"TinnoKids"  },
+    {"id":3 , "nombre": "Cochesito" ,"precio": 1400 , "cantidad": 1 , "img": "img/coche.jpg", "marca":"Felcraf"},
+    {"id":4 , "nombre": "Bañadera" ,"precio": 1500 , "cantidad": 1 , "img": "img/bañadera.webp", "marca":"Kiddy"  },
+    {"id":5 , "nombre": "Gimnasio" ,"precio": 1700 , "cantidad": 1 , "img": "img/gym.webp", "marca":"Bebesit"  },
+    {"id":6 , "nombre": "Butaca" ,"precio": 1900 , "cantidad": 1 , "img": "img/senna.webp", "marca":"Felcraf"  },
+    {"id":7 , "nombre": "Triciclo con Barral" ,"precio": 1200 , "cantidad": 1 , "img": "img/Little-Trike-Girl.webp", "marca":"Felcraf"  },
+    {"id":8 , "nombre": "Monopatin" ,"precio": 1100 , "cantidad": 1 , "img": "img/mono.jpg", "marca":"Love"  },
+    {"id":9 , "nombre": "Caminador" ,"precio": 1200, "cantidad": 1 , "img": "img/caminador-rondi-first-steps-bebe-didactico-andador-3-.jpg", "marca":"TinnoKids"},
+    {"id":10 , "nombre": "Silla 3 en 1" ,"precio": 1300 , "cantidad": 1 , "img": "img/silla-3en1.webp", "marca":"Bebesit"},
+    {"id":11 , "nombre": "Coche con huevito" ,"precio": 1400 , "cantidad": 1 , "img": "img/coche-huevito.webp", "marca":"Bebesit"},
+    {"id":12 , "nombre": "Aro de baño" ,"precio": 1500 , "cantidad": 1 , "img": "img/aro-bano.jpg", "marca":"Love"  },
+    {"id":13 , "nombre": "Gimnasio" ,"precio": 1700 , "cantidad": 1 , "img": "img/gyin2.webp", "marca":"Love"  },
+    {"id":14 , "nombre": "Butaca booster" ,"precio": 1900 , "cantidad": 1 , "img": "img/butaca2.jpg", "marca":"Kiddy"},
+    {"id":15 , "nombre": "Silla de comer" ,"precio": 1200 , "cantidad": 1 , "img": "img/SILLA-POCKET.jpg", "marca":"Pocket"},
+    {"id":16 , "nombre": "Silla Mimzy" ,"precio": 1100 , "cantidad": 1 , "img": "img/silla-mimzy.webp", "marca":"Minzy"}
+]

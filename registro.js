@@ -8,6 +8,7 @@ const userInfo = document.querySelector(".user-info")
 const sectRegister = document.querySelector("#sect-register")
 const containerLogin = document.querySelector("#container-login")
 //CONTRUCTOR DE USUARIOS
+let usuarios = [];
 class Usuario {
     constructor(nombre, email, contraseña){
         this.nombre = nombre;
@@ -24,18 +25,25 @@ let refesh
 document.addEventListener("DOMContentLoaded",()=>{
     if(localStorage.getItem("usuario")){
         sectRegister.classList.add("d-none")
-        getUsuario = JSON.parse(localStorage.getItem("usuario"))
-        let valoresUsario = Object.values(getUsuario);
-        valoresUsario.forEach(el => {
+        usuarios = JSON.parse(localStorage.getItem("usuario"))
+        console.log(usuarios)
+        console.log(usuarios.find((el)=>el.nombre === "Tobias"))
+        let usuariofind = usuarios.find((el)=>el.nombre === "Tobias")
+        console.log(usuarios.indexOf(usuariofind))
+        let usuarioInd = usuarios.indexOf(usuariofind)
+        
+        // let valoresUsario = Object.values(getUsuario);
+        usuarios.forEach(el => {
                 userInfo.innerHTML = `
-                <div><span class="valor-user">${valoresUsario[0]}<span></div>
-                <div><span class="valor-user">${valoresUsario[1]}<span></div>
+                <div><span class="valor-user">${el.nombre}<span></div>
+                <div><span class="valor-user">${el.email}<span></div>
                 <span class="valor-user"><a href="" style="font-weight:500" id="log-out">log-out</a></span>
                 `
             });
             const logOut = document.querySelector("#log-out")
             
-            logOut.addEventListener("click",(e)=>{
+            logOut.addEventListener("click",(e)=>{ 
+                usuarios.splice(usuarioInd,1)
                 localStorage.removeItem("usuario")
                 sectRegister.classList.remove("d-none")
             })
@@ -44,6 +52,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 })
 //REGISTRARSE
 form.addEventListener("submit", (e)=>{
+    // e.preventDefault()
     let regExEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     let warnings =""
     let entrar = false
@@ -68,7 +77,9 @@ form.addEventListener("submit", (e)=>{
     }else{
         alertas.textContent = "Enviado!" 
         let User = new Usuario(nameUser, emailUser, passUser)
-        localStorage.setItem("usuario",JSON.stringify(User))
+        usuarios.push(User)
+        console.log(usuarios)
+        localStorage.setItem("usuario",JSON.stringify(usuarios))
         sectRegister.classList.add("d-none")
     }
 })

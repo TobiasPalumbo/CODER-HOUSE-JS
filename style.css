@@ -1,9 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
 :root{
-    --color-primario: rgb(49, 49, 49);
+    --color-primario: #3f3151;
     --color-secundario:#25628d;
-    --bg-dark:rgb(5 39 65);
+    --bg-dark:#242424;
 }
 *{
     margin: 0;
@@ -98,7 +98,6 @@ a{
 .down{
     animation: downUp 900ms ease-in 1ms 1 none;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.521);
-
 }
 @keyframes downUp {
     0%{
@@ -159,8 +158,9 @@ a{
 .productos{
     overflow: hidden;
     padding: 10px;
-    border-radius: 10px;
-    border: 1px solid var(--color-primario);
+    height: auto;
+    border-radius: 15px;
+    border: 2px solid var(--color-primario);
     transition: all 500ms ease;
     position: relative;
     cursor: pointer;
@@ -240,31 +240,38 @@ a{
     align-items: center;
     color: rgb(14, 60, 103);
     border-bottom: 1px solid rgb(14, 60, 103);
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 1.3rem;
 }
+
 .modal-cross{
     cursor: pointer;
     transition: all 300ms ease;   
+    font-size: 1.8rem;
 }
 .modal-cross:hover{
     color: rgb(255, 0, 0);
 }
 
 .modal-clear{
-    padding: 2px 7px;
+    padding: 8px 10px;
     border: none;
     color: #fff;
+    border-radius: 20px;
     background-color: rgb(233, 40, 40);
-    transition: all 300ms ease;
+    transition: all 800ms ease;
     cursor: pointer ;
 }
 
 .modal-clear:hover{
-    background-color: rgb(111, 5, 5) ;
+    color: #c91919;
+    background-color: #fff;
+    outline: 1px solid #c9191e;
 }
 
 .producto-cart{
     margin-top: 7px;
-    line-height: 1.5;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -273,19 +280,62 @@ a{
     color: black;
 }
 .img-producto-cart{
-    width: 50px;
+    width: 100px;
     height: auto;
+}
+.producto-cart span{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 20px;
+}
+#cantidad{
+    background-color: #3c269d;
+    padding: 10px;
+    border-radius: 20px;
+    color: #fff;
+    text-align: center;
+}
+#cantidad span{
+    margin: 10px;
+    cursor: pointer;
+}
+.modal-price{
+    color: #ffffff;
+    background-color: #088178;
+}
+.modal-nombre{
+    color: var(--color-primario);
+    border: 1px solid black;
 }
 
 .btn-eliminar{
     border: none;
     cursor: pointer;
-    color: #931b1b;
+    font-size: 20px;
+    background-color: #931b1b;
+    color: #fff;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
     transition: all 300ms ease;
 }
 
 .btn-eliminar:hover{
     color: #c91919;
+    background-color: #fff;
+    outline: 1px solid #c91919;
+}   
+.precioTotal{
+    padding: 10px 0;
+    font-weight: bold;
+    color: #191b1b;
+    text-transform: uppercase;
+    color: #5c5c5c;
+}
+.precioTotal span{
+    color: #088178;
 }
 .login{
     padding: 0 40px;
@@ -465,6 +515,7 @@ input:-webkit-autofill{
     position: fixed;
     top: 90%;
     left: 30px;
+    z-index: 999;
 }
 
 .switch{
