@@ -23,6 +23,10 @@ window.onload = () =>{
     cuartoLink.addEventListener("click",()=>{
         scrollSmooth("#sect-register", 500, 52)
     })
+    let quintoLink = links[4]
+    quintoLink.addEventListener("click",()=>{
+        scrollSmooth("#ayuda", 500, 52)
+    })
 }
 
 const scrollSmooth = (objetivo, duracion, compensacion) =>{

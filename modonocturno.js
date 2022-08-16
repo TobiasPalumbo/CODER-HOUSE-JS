@@ -3,6 +3,7 @@ const containerSwitch = document.querySelector(".switch-container")
 let bgMode = true
 let bgLocalStorage
 
+
 document.addEventListener("DOMContentLoaded",()=>{
 
     if( JSON.parse(localStorage.getItem("color-mode")) === true){

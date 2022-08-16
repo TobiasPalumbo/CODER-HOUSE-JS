@@ -26,6 +26,9 @@ a{
     text-decoration: none;
     color: #fff;
 }
+.color-fff{
+    color: #fff;
+}
 .d-none{
     display: none;
 }
@@ -337,8 +340,12 @@ a{
 .precioTotal span{
     color: #088178;
 }
+#sect-register{
+    position: relative;
+}
+
 .login{
-    padding: 0 40px;
+    padding: 60px 40px;
     margin-top: 50px;
     display: flex;
     flex-wrap: wrap;

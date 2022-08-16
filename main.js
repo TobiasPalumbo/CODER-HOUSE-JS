@@ -19,14 +19,14 @@ const llamarProductos = async() =>{
                 <h4 class="nombre">${el.nombre}</h4>
                 <p class="precio">$${el.precio}</p>
                 <button id="add-carrito-${el.id}" class="btn-add"><i class="fa-solid fa-cart-arrow-down"></i></button>
-            `;
+            `;  let h4 = document.querySelector(".nombre")
                 section.appendChild(div);
                 const boton = document.getElementById(`add-carrito-${el.id}`);
-
                 boton.addEventListener("click", ()=>{
                 agregarAlcarrito(el.id)
         });
     })
+    
     //Agrargando el producto al array carrito
     const agregarAlcarrito = (prodId) => {
         const existe = carrito.some(prod => prod.id === prodId);
